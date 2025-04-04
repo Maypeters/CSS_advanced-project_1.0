@@ -1,0 +1,202 @@
+/* CSS Custom Properties */
+:root {
+    --primary-color: #24053E;
+    --secondary-color: #44FFA1;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --white: #fff;
+
+    --font-size-small: 1rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 2rem;
+}
+
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}
+
+/* HEADER */
+header {
+    grid-area: header;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 40px 20px;
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "hero";
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    grid-area: nav;
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center;
+    text-align: center;
+    padding: 0 15px;
+    gap: 15px; /* Space between elements */
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%; /* Full width on mobile */
+    max-width: 200px; /* Prevent it from being too wide */
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-area: hero;
+    padding: 40px 20px; 
+}
+
+.hero h2 {
+    font-size: var(--font-size-large);
+    margin-bottom: 20px;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+    margin-top: 30px; 
+}
+
+.hero button {
+    background: var(--secondary-color);
+    color: #000;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 160px;
+    margin-top: 20px;
+}
+
+/* MAIN CONTENT */
+main {
+    display: grid;
+    place-items: center;
+    padding: 50px 20px;
+    grid-area: main;
+}
+
+/* FEATURES SECTION */
+.features {
+    display: flex;
+    flex-direction: column; /* Stack features vertically on mobile */
+    align-items: center;
+    max-width: 1100px;
+    gap: 20px;
+}
+
+/* FEATURE ITEM */
+.feature {
+    background: var(--white); 
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.feature h3 {
+    font-size: var(--font-size-large);
+}
+
+/* FOOTER */
+footer {
+    display: flex;
+    grid-area: footer;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* SOCIAL MEDIA ICONS */
+.social-icons img {
+    padding: 5px;
+}
+
+footer #logo {
+    padding: 20px;
+}
+
+/* DESKTOP RESPONSIVENESS */
+@media (min-width: 768px) {
+    /* Update grid layout for larger screens */
+    body {
+        grid-template-areas: 
+            "header header header"
+            "main main main"
+            "footer footer footer";
+    }
+
+    /* Adjust hero image size */
+    .hero img {
+        width: 40%;
+        max-width: 900px;
+    }
+
+    /* Display features in two columns */
+    .features {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .feature {
+        width: 45%;
+    }
+
+    /* Navigation items side by side */
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav a {
+        width: auto; 
+        max-width: none;
+    }
+}
+
+@media (min-width: 800px) {
+    /* Display features in three columns on larger screens */
+    .features {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .feature {
+        width: 30%;
+    }
+}
